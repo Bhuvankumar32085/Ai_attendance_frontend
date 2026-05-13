@@ -15,6 +15,7 @@ import { useAppSelector } from "../../redux/hook";
 import API from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import RecordRTC from "recordrtc";
+import { Loader2 } from "lucide-react";
 
 export const EnrollBiometrics: React.FC = () => {
   const { loggedUser } = useAppSelector((state) => state.user);
@@ -28,6 +29,7 @@ export const EnrollBiometrics: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null); // Naya ref File Upload ke liye
   const videoStreamRef = useRef<MediaStream | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // Voice States
   const [isRecording, setIsRecording] = useState(false);
@@ -154,7 +156,7 @@ export const EnrollBiometrics: React.FC = () => {
     console.log("Submitting Biometrics...");
     console.log("Image Data:", imageSrc?.substring(0, 50) + "...");
     console.log("Audio Blob:", audioBlob);
-
+    setLoading(true);
     const formData = new FormData();
     try {
       if (audioBlob) {
@@ -178,6 +180,8 @@ export const EnrollBiometrics: React.FC = () => {
       navigate("/");
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -459,7 +463,15 @@ export const EnrollBiometrics: React.FC = () => {
                 onClick={handleSubmit}
                 className="px-10 py-4 w-full max-w-sm bg-emerald-600 text-white rounded-2xl font-bold text-lg hover:bg-emerald-500 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.4)]"
               >
-                <FaCheckCircle /> Save Biometrics
+                {loading ? (
+                  <>
+                    <Loader2 className="mx-auto animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    <FaCheckCircle /> Save Biometrics
+                  </>
+                )}
               </motion.button>
             </motion.div>
           )}
