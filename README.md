@@ -1,73 +1,221 @@
-# React + TypeScript + Vite
+# 🎓 Intelligent AI Attendance System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An advanced AI-powered attendance management system using Face Recognition, Voice Recognition, and QR Code Attendance built with:
 
-Currently, two official plugins are available:
+- Frontend: React + TypeScript + Vite
+- Backend: Flask (Python)
+- Database: Supabase
+- AI Models: Dlib, Resemblyzer, OpenCV
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🌐 Live Project: https://ai-attendance-frontend.vercel.app/dashboard
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 🚀 Features
 
-## Expanding the ESLint configuration
+## 👨‍🏫 Teacher Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Create classes/subjects
+- Start and close attendance sessions
+- Generate QR code for attendance
+- View enrolled students
+- View attendance reports
+- Real-time class session management
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 👨‍🎓 Student Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Face recognition attendance
+- Voice recognition attendance
+- QR code attendance
+- Subject-wise attendance tracking
+- Overall attendance percentage
+- Daily attendance status
+- Attendance history
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 🧠 AI Features
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔍 Face Recognition
+
+- Multi-face detection
+- Dlib 128D face embeddings
+- SVM classifier for student recognition
+- Real-time attendance marking
+
+---
+
+## 🎤 Voice Recognition
+
+- Speaker identification
+- Voice embeddings using Resemblyzer
+- Audio segmentation using Librosa
+- Confidence-based matching
+
+---
+
+# 🏗️ Tech Stack
+
+## Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Axios
+
+---
+
+## Backend
+
+- Flask
+- Flask-CORS
+- Gunicorn
+
+---
+
+## AI / ML
+
+- Dlib
+- OpenCV
+- face_recognition_models
+- Scikit-learn
+- Resemblyzer
+- Librosa
+- NumPy
+
+---
+
+## Database
+
+- Supabase PostgreSQL
+
+---
+
+# 📂 Project Structure
+
+bash INTELLIGENT_AI_ATTENDANCE/ │ ├── backend/ │   ├── app.py │   ├── src/ │   │   ├── controllers/ │   │   ├── routes/ │   │   ├── pipelines/ │   │   ├── configs/ │ ├── frontend/ │   ├── src/ │   ├── components/ │   ├── pages/ 
+
+---
+
+# ⚙️ Installation
+
+## 1️⃣ Clone Repository
+
+bash git clone YOUR_GITHUB_REPO_LINK 
+
+---
+
+## 2️⃣ Backend Setup
+
+bash cd backend 
+
+Create virtual environment:
+
+bash python -m venv venv 
+
+Activate:
+
+### Windows
+
+bash venv\Scripts\activate 
+
+### Linux / Mac
+
+bash source venv/bin/activate 
+
+Install dependencies:
+
+bash pip install -r requirements.txt 
+
+Run backend:
+
+bash python app.py 
+
+---
+
+## 3️⃣ Frontend Setup
+
+bash cd frontend npm install npm run dev 
+
+---
+
+# 🔐 Environment Variables
+
+## Backend .env
+
+env SUPABASE_URL=YOUR_SUPABASE_URL SUPABASE_KEY=YOUR_SUPABASE_KEY JWT_SECRET=YOUR_SECRET_KEY FRONTEND_URL=http://localhost:5173 
+
+---
+
+## Frontend .env
+
+env VITE_API_URL=http://127.0.0.1:5000 
+
+---
+
+# 📸 Attendance Methods
+
+## ✅ Face Attendance
+
+- Detects multiple faces
+- Generates embeddings
+- Matches student using AI model
+
+---
+
+## ✅ Voice Attendance
+
+- Processes audio segments
+- Identifies speaker
+- Matches voice embedding
+
+---
+
+## ✅ QR Attendance
+
+- Teacher generates QR code
+- Student scans QR
+- Attendance page opens
+- Attendance only works during active session
+
+---
+
+# 📊 Attendance Dashboard
+
+## Student Dashboard
+
+- Overall attendance percentage
+- Subject-wise attendance
+- Present / absent tracking
+- Attendance history
+
+---
+
+## Teacher Dashboard
+
+- Subject management
+- Student enrollments
+- Session controls
+- Attendance reports
+
+---
+
+# 🔥 Future Improvements
+
+- Live classroom camera attendance
+- Anti-spoof detection
+- Mobile app
+- Real-time notifications
+- AI analytics dashboard
+- Face liveness detection
+
+---
+
+# 👨‍💻 Developer
+
+Developed by Bhuvan Kumar
+
+GitHub: https://github.com/Bhuvankumar32085
